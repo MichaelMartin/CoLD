@@ -117,6 +117,35 @@ function getSnippetsContent() {
             return md5Hash(string.getBytes());
         }
 
+        public static String getUriColor(String uri) {
+            String hash = StringUtils.md5Hash("01");
+            String color = "#" + hash.substring(hash.length() - 6);
+            return color;
+        }
+
+        </pre>
+
+        <h3>Maven + Java Snippet</h3>
+        <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
+        #Maven pom.xml snippet:
+        &lt;repositories&gt;
+            &lt;repository&gt;
+                &lt;id&gt;maven.aksw.org/internal&lt;/id&gt;
+                &lt;name&gt;University Leipzig, AKSW Maven2 Internal Repository&lt;/name&gt;
+                &lt;url&gt;http://maven.aksw.org/repository/internal/&lt;/url&gt;
+            &lt;/repository&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.aksw.commons&lt;/groupId&gt;
+                &lt;artifactId&gt;util&lt;/artifactId&gt;
+                &lt;version&gt;0.1&lt;/version&gt;
+                &lt;scope&gt;compile&lt;/scope&gt;
+            &lt;dependency&gt;
+
+        #Java Snippet
+        import org.aksw.commons.util.strings.StringUtils;
+        String hash = StringUtils.md5Hash("01");
+        String color = "#" + hash.substring(hash.length() - 6);
         </pre>
 
         <h3>Shell Snippet</h3>
@@ -221,7 +250,9 @@ function getColoringContent($iri, $hexColor, $error) {
                 </div>
             </p>
             <h2>Other Result formats</h2>
-            <a href="rgb.php?iri='.$iri.'">RGB Hex Code</a>&nbsp;|&nbsp;<a href="rdf.php?iri='.$iri.'">RDF representation</a>';
+            <a href="rgb.php?iri='.$iri.'">RGB Hex Code</a>&nbsp;|
+            <a href="rgb.php?iri='.$iri.'&rf=json">RGB JSON</a>&nbsp;|
+            &nbsp;<a href="rdf.php?iri='.$iri.'">RDF Turtle</a>';
     } else if (!empty($error)){
         $resultBox ='
         <h2>Error</h2>

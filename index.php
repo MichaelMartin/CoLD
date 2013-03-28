@@ -45,6 +45,9 @@ $html =
             <h1>Colour the Linked Data Web!</h1>
             '.$content.'
         </div>
+        <div id="footer">
+            CoLD was made for the Aprils Fools\'Day 2013 and is an extension of <a href="http://linkedopencolors.moreways.net/">Linked Open Colors</a> an informal initiative for promoting Linked Data (Aprils Fools\'Day 2011).
+        </div>
     </div>
   </body>
 </html>
