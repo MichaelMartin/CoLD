@@ -2,6 +2,7 @@
 function getHowToContent() {
     $content = '
         <h2>HowTo</h2>
+        <p>
             To use this awesome approach the following three abilities exists:
             <ul>
                 <li>Put an IRI into the form on the <a href="index.php">startpage</a> and submit. 
@@ -9,7 +10,9 @@ function getHowToContent() {
                 <li>You use the RGB Hex code interface that returns only the HexCode for automation of this workflow.</li>
                 <li>Or you take a code snippet from the <a href="index.php?page=snippets">snippet page</a> and integrate the algorithm into your application.</li>
             </ul>
+        </p>
         <h3>Examples using the HTML interface</h3>
+        <p>
             Use the form or add the parameter <b>?iri=what_ever_should_be_colored</b> as you can see if you click on one of the following links:
             <ul>
                 <li>coloring <a href="index.php?iri=http%3A%2F%2Fdbpedia.org%2Fresource%2FLeipzig">dbpedia:Leipzig</a></li>
@@ -17,20 +20,35 @@ function getHowToContent() {
                 <li>coloring <a href="index.php?iri=http%3A%2F%2Faksw.org%2FSoerenAuer">aksw:SoerenAuer</a></li>
                 <li>Even a <a href="index.php?iri=http%3A%2F%2Fdbpedia.org%2Fpage%2FDipstick">dbpedia:Dipstick</a> can be colored acceptable.</li>
             </ul>
+        </p>
         <h3>Examples using the RGB HEX interface</h3>
+        <p>
             If you use the rgb.php instead of the index.php, you will receive only the RGB HEX code of the respective IRI. Try the following links:
             <ul>
                 <li>RGB HexCode of <a href="rgb.php?iri=http%3A%2F%2Fdbpedia.org%2Fresource%2FLeipzig">dbpedia:Leipzig</a></li>
                 <li>RGB HexCode of <a href="rgb.php?iri=http%3A%2F%2Fdata.lod2.eu%2Fscoreboard%2Fcountry%2FNetherlands">das:Netherlands</a></li>
                 <li>RGB HexCode of <a href="rgb.php?iri=http%3A%2F%2Faksw.org%2FSoerenAuer">aksw:SoerenAuer</a></li>
-            </ul>    
+            </ul>  
+        </p>
         <h3>Examples using the RDF interface</h3>
-            If you use the rdf.php instead of the index.php, you will receive RDF in turtle notation about the respective IRI. Try the following links:
+        <p>
+            If you use the rdf interface 
+            <ul>
+                <li><span>http://cold.aksw.org/rdf.php?iri=what_ever_you_want_to_colour</span> </li>
+                <li><span>http://cold.aksw.org/rdf/?iri=what_ever_you_want_to_colour</span></li>
+            </ul>
+            you will receive an RDF in turtle notation about the respective IRI.<br> 
+            Returning RDF files are encoded in Turtle notation and contain a mapping between given IRI and a colour resource from <a href="http://linkedopencolors.moreways.net/">Linked Open Colors</a>. 
+            For mapping of both resources we provide the colour AnnotationProperty (<a href="http://cold.aksw.org/rdf/colour">http://cold.aksw.org/rdf/colour</a>). 
+        </p>
+        <p>
+            Try the following links:
             <ul>
                 <li>RDF annotation of <a href="rdf.php?iri=http%3A%2F%2Fdbpedia.org%2Fresource%2FLeipzig">dbpedia:Leipzig</a></li>
                 <li>RDF annotation of <a href="rdf.php?iri=http%3A%2F%2Fdata.lod2.eu%2Fscoreboard%2Fcountry%2FNetherlands">das:Netherlands</a></li>
                 <li>RDF annotation of <a href="rdf.php?iri=http%3A%2F%2Faksw.org%2FSoerenAuer">aksw:SoerenAuer</a></li>
             </ul>    
+        </p>
     ';
     return $content; 
 }
@@ -39,7 +57,7 @@ function getSnippetsContent() {
     $content = '
        <h2>CodeSnippets</h2>
         <p>
-            The algorithm to color the Linked Data Web is quite complex :-) <br>
+            The algorithm to colour the Linked Data Web is quite complex :-) <br>
             We are hashing the given IRI using md5 and cutting the last 6 characters out of the resulting hash. 
             Thats it!
         </p>
@@ -63,19 +81,47 @@ function getSnippetsContent() {
             var hash = CryptoJS.MD5("Message");
         &lt;/script&gt;
 
-        var iri = "http://iri/to-be/color.ed/";
+        var iri = "http://iri/to-be/colour.ed/";
         CryptoJS.MD5(iri);
         var rgb = "#" + hash.substr(-6);
         </pre>
 
         <h3>Java Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
-TBD   
+
+        public static String md5Hash(byte[] bytes) {
+            MessageDigest md5 = null;
+            try {
+                md5 = MessageDigest.getInstance("MD5");
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+            md5.reset();
+            md5.update(bytes);
+            byte[] rawResult = md5.digest();
+            return bytesToHexString(rawResult);
+        }
+        public static String bytesToHexString(byte[] bytes) {
+            String result = "";
+            for (int i = 0; i < bytes.length; i++) {
+                int value = 0xff & bytes[i];
+                if(value < 16) {
+                    result += "0";
+                }
+                result += Integer.toHexString(value);
+            }
+            return result;
+        }
+
+        public static String md5Hash(String string) {
+            return md5Hash(string.getBytes());
+        }
+
         </pre>
 
         <h3>Shell Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
-        $iri "http://iri/to-be/color.ed/"
+        $iri "http://iri/to-be/colour.ed/"
         echo -n $iri | md5 | cut -c 27-
         </pre>
     ';
@@ -86,7 +132,7 @@ function getToolsContent() {
     $content = '
         <h2>List of Tools</h2>
         <p>
-            Here we list Linked Data Web Applications that using the coloring algorithm to visualize RDF resources on the Web. 
+            Here we list Linked Data Web Applications that using the colouring algorithm to visualize RDF resources on the Web. 
         </p>
 
         <div style="margin-bottom:2em">
@@ -107,8 +153,8 @@ function getToolsContent() {
         <div style="margin-bottom:2em">
             <h3>rdf.sh</h3>
             <p>
-                A multi-tool shell script for doing Semantic Web jobs on the command line. The last addition to rdf.sh is the coloring option. 
-                To use it, clone the below listed repository, and use the following command line: <pre>rdf.sh color what_ever_should_be_colored</pre>
+                A multi-tool shell script for doing Semantic Web jobs on the command line. The last addition to rdf.sh is the colouring option. 
+                To use it, clone the below listed repository, and use the following command line: <pre>rdf.sh colour what_ever_should_be_coloured</pre>
                 <ul>
                     <li><a href="https://github.com/seebi/rdf.sh">Github Repository</a></li>
                 </ul>
@@ -145,8 +191,8 @@ function getImprintContent() {
         <h2>Imprint</h2>
         <p>
             This Webservice is under control of <a href="http://aksw.org/">AKSW</a> and made especially for the Fools Day 2013. 
-            We hope you enjoy this Web Service. No warranty is granted for the right of the resulting color.
-            Maybe you get an impression how colorful the Linked Data Web could be, and which advantages user could have if this approach would be integrated in all those tools dealing with IRIs.
+            We hope you enjoy this Web Service. No warranty is granted for the right of the resulting colour.
+            Maybe you get an impression how colourful the Linked Data Web could be, and which advantages user could have if this approach would be integrated in all those tools dealing with IRIs.
         </p>
         <p>
             If you have any suggestions to improve this WebService feel free to contact us :-)
@@ -186,9 +232,9 @@ function getColoringContent($iri, $hexColor, $error) {
         <p>
             To improve usability of generic tools processing linked data for humans, we suggest to re-use illustrations of resources. 
             This would help users to recognize/identify things in different tools far better. 
-            As a first step you can color your resources in a deterministic way. 
+            As a first step you can colour your resources in a deterministic way. 
         </p>
-        <h2>Please type in your IRI to be colored</h2>
+        <h2>Please type in your IRI to be coloured</h2>
         <p>
             <form action="index.php" method="GET" target="_self">
              <input 
@@ -199,10 +245,10 @@ function getColoringContent($iri, $hexColor, $error) {
                 role="textbox" 
                 accesskey="c" 
                 placeholder="type in an IRI" 
-                title="color your IRI" 
+                title="colour your IRI" 
                 autofocus="autofocus"
             >
-            <input type="submit" value="Lets color!">
+            <input type="submit" value="Lets colour!">
             </form>
         </p>
         '.$resultBox;

@@ -42,7 +42,7 @@ $html =
                 <a href="index.php?page=tools">Tools</a>&nbsp;|&nbsp;
                 <a href="index.php?page=imprint">Imprint</a>
             </div>
-            <h1>Color the Linked Data Web!</h1>
+            <h1>Colour the Linked Data Web!</h1>
             '.$content.'
         </div>
     </div>

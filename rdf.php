@@ -28,7 +28,7 @@ echo '@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 '.$iriPart.'
 '.$colorPart.'
-cold:color a owl:AnnotationProperty ;
+cold:colour a owl:AnnotationProperty ;
     rdfs:label "color"@en ;
     rdfs:domain rdf:Resource ;
     rdfs:range dbpedia:Colour .
