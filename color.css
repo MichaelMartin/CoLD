@@ -34,6 +34,8 @@ a img {
     text-align: left;
     background-color: #fff;
     min-height: 700px;
+    height:auto !important;
+    height: 700px;
 }
 
 #iri {
