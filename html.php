@@ -218,7 +218,7 @@ function getToolsContent() {
 function getImprintContent() {
     $content = '
         <div style="float:right">
-            <a href="http://aksw.org/"><img src="images/logo-aksw.png" /></a>    
+            <a href="http://aksw.org/" style="text-decoration:none; border:0"><img src="images/logo-aksw.png" /></a>    
         </div>
         <h2>Imprint</h2>
         <p>
@@ -236,7 +236,7 @@ function getImprintContent() {
         </ul>
         
         <h3 style="margin-top:3em">Projects</h3>
-        <a href="http://lod2.eu/"><img src="images/logo-lod2.png" /></a>';
+        <a href="http://lod2.eu/" style="text-decoration:none; border:0"><img src="images/logo-lod2.png" /></a>';
     return $content; 
 }
 
