@@ -7,7 +7,7 @@ function getHowToContent() {
             <ul>
                 <li>Put an IRI into the form on the <a href="index.php">startpage</a> and submit. 
                     A HexCode appears, that can be copied to clipboard and used to color the specific resource in your application.</li>
-                <li>You use the RGB Hex code interface that returns only the HexCode for automation of this workflow.</li>
+                <li>You use the RGB Hex code, RGB JSON or RDF interface that returns the HexCode in the respective representation for automation of this workflow.</li>
                 <li>Or you take a code snippet from the <a href="index.php?page=snippets">snippet page</a> and integrate the algorithm into your application.</li>
             </ul>
         </p>
@@ -25,9 +25,18 @@ function getHowToContent() {
         <p>
             If you use the rgb.php instead of the index.php, you will receive only the RGB HEX code of the respective IRI. Try the following links:
             <ul>
-                <li>RGB HexCode of <a href="rgb.php?iri=http%3A%2F%2Fdbpedia.org%2Fresource%2FLeipzig">dbpedia:Leipzig</a></li>
-                <li>RGB HexCode of <a href="rgb.php?iri=http%3A%2F%2Fdata.lod2.eu%2Fscoreboard%2Fcountry%2FNetherlands">das:Netherlands</a></li>
-                <li>RGB HexCode of <a href="rgb.php?iri=http%3A%2F%2Faksw.org%2FSoerenAuer">aksw:SoerenAuer</a></li>
+                <li>
+                    RGB of <a href="rgb.php?iri=http%3A%2F%2Fdbpedia.org%2Fresource%2FLeipzig">dbpedia:Leipzig</a> or
+                    RGB/JSON of <a href="rgb.php?rf=json&iri=http%3A%2F%2Fdbpedia.org%2Fresource%2FLeipzig">dbpedia:Leipzig</a>
+                </li>
+                <li>
+                    RGB of <a href="rgb.php?iri=http%3A%2F%2Fdata.lod2.eu%2Fscoreboard%2Fcountry%2FNetherlands">das:Netherlands</a> or
+                    RGB/JSON of <a href="rgb.php?iri=http%3A%2F%2Fdata.lod2.eu%2Fscoreboard%2Fcountry%2FNetherlands">das:Netherlands</a>
+                </li>
+                <li>
+                    RGB of <a href="rgb.php?iri=http%3A%2F%2Faksw.org%2FSoerenAuer">aksw:SoerenAuer</a> or
+                    RGB/JSON of <a href="rgb.php?iri=http%3A%2F%2Faksw.org%2FSoerenAuer">aksw:SoerenAuer</a>
+                </li>
             </ul>  
         </p>
         <h3>Examples using the RDF interface</h3>
@@ -184,7 +193,7 @@ function getToolsContent() {
             <h3>rdf.sh</h3>
             <p>
                 A multi-tool shell script for doing Semantic Web jobs on the command line. The last addition to rdf.sh is the colouring option. 
-                To use it, clone the below listed repository, and use the following command line: <pre>rdf.sh colour what_ever_should_be_coloured</pre>
+                To use it, clone the below listed repository, and use the following command line: <pre>rdf.sh color what_ever_should_be_coloured</pre>
                 <ul>
                     <li><a href="https://github.com/seebi/rdf.sh">Github Repository</a></li>
                 </ul>
@@ -203,7 +212,7 @@ function getToolsContent() {
                     <li>Name of the Tool</li>
                     <li>Short description</li>
                     <li>Screenshot / Logo</li>
-                    <li>Link to the Demo, Repository etc. (something where using can try it out.)</li>
+                    <li>Link to the Demo, Repository etc. </li>
                 </ul>
                 Alternativly you can send us an RDF description about the tool.
             </p>
