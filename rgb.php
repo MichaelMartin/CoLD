@@ -16,6 +16,7 @@ if (!empty($_REQUEST['rf'])) {
             break;
             
         case 'plain' :
+            echo "#".$hexColor;
             break;
     }
     

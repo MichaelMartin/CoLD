@@ -43,7 +43,7 @@ $html =
                 <a href="index.php?page=imprint">Imprint</a>
             </div>
             <div style="clear:both"></div>
-            <h1>Colour the Linked Data Web!</h1>
+            <h1>Color the Linked Data Web!</h1>
             '.$content.'
         </div>
         <div id="footer">
