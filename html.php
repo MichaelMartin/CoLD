@@ -211,7 +211,7 @@ function getImprintContent() {
 function getColoringContent($iri, $hexColor, $error) {
     if (!empty($hexColor) && $error == null) {
         $resultBox ='
-            <h2>Color</h2>
+            <h2>Resulting colour</h2>
             <p>
             Given IRI : <br>
             <a href="'.$iri.'">'.$iri.'</a><br>&nbsp;<br>
