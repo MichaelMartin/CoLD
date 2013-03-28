@@ -37,7 +37,7 @@ function getHowToContent() {
 
 function getSnippetsContent() {
     $content = '
-        <h2>CodeSnippets</h2>
+       <h2>CodeSnippets</h2>
         <p>
             The algorithm to color the Linked Data Web is quite complex :-) <br>
             We are hashing the given IRI using md5 and cutting the last 6 characters out of the resulting hash. 
@@ -50,19 +50,33 @@ function getSnippetsContent() {
         </p>
         <h3>PHP Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
-        $iri  = "http://mydomain/IriToBeColored/" ;
+        $iri  = "http://iri/to-be/color.ed/" ;
         $hash = hash("md5",$iri) ;
         $rgb  = "#" . substr($hash, strlen($hash) -6, strlen($hash));
+        echo $rgb;
         </pre>
 
         <h3>JavaScript Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
-TBD
+        &lt;script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var hash = CryptoJS.MD5("Message");
+        &lt;/script&gt;
+
+        var iri = "http://iri/to-be/color.ed/";
+        CryptoJS.MD5(iri);
+        var rgb = "#" + hash.substr(-6);
         </pre>
 
         <h3>Java Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
 TBD   
+        </pre>
+
+        <h3>Shell Snippet</h3>
+        <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
+        $iri "http://iri/to-be/color.ed/"
+        echo -n $iri | md5 | cut -c 27-
         </pre>
     ';
     return $content; 
@@ -74,6 +88,7 @@ function getToolsContent() {
         <p>
             Here we list Linked Data Web Applications that using the coloring algorithm to visualize RDF resources on the Web. 
         </p>
+
         <div style="margin-bottom:2em">
             <img src="images/CubeViz_Logo.jpg" style="float:right;width:150px;"/>
             <h3>CubeViz</h3>
@@ -88,6 +103,20 @@ function getToolsContent() {
                 
             </p>
         </div>
+
+        <div style="margin-bottom:2em">
+            <h3>rdf.sh</h3>
+            <p>
+                A multi-tool shell script for doing Semantic Web jobs on the command line. The last addition to rdf.sh is the coloring option. 
+                To use it, clone the below listed repository, and use the following command line: <pre>rdf.sh color what_ever_should_be_colored</pre>
+                <ul>
+                    <li><a href="https://github.com/seebi/rdf.sh">Github Repository</a></li>
+                </ul>
+                
+            </p>
+        </div>
+
+
         <div style="border:1px dashed #afafaf; background-color:eaeaea; padding:1em;">
             <h2>You want to see your tool in this list?</h2>
             <p>
@@ -110,10 +139,13 @@ function getToolsContent() {
 
 function getImprintContent() {
     $content = '
+        <div style="float:right">
+            <a href="http://aksw.org/"><img src="images/logo-aksw.png" /></a>    
+        </div>
         <h2>Imprint</h2>
         <p>
-            This Webservice is under control of AKSW and made especially for the Fools Day 2013. 
-            We hope you enjoy this Web Service. 
+            This Webservice is under control of <a href="http://aksw.org/">AKSW</a> and made especially for the Fools Day 2013. 
+            We hope you enjoy this Web Service. No warranty is granted for the right of the resulting color.
             Maybe you get an impression how colorful the Linked Data Web could be, and which advantages user could have if this approach would be integrated in all those tools dealing with IRIs.
         </p>
         <p>
@@ -123,11 +155,10 @@ function getImprintContent() {
             <li><a href="http://aksw.org/">AKSW</a></li>
             <li><a href="http://aksw.org/MichaelMartin.html">Michael Martin</a></li>
             <li><a href="http://aksw.org/SoerenAuer.html">Soeren Auer</a></li>
-            <li><a href="">Color the Linked Data Web Repository</a></li>
         </ul>
         
-        No warranty is granted for the right of the resulting color.
-    ';
+        <h3 style="margin-top:3em">Projects</h3>
+        <a href="http://lod2.eu/"><img src="images/logo-lod2.png" /></a>';
     return $content; 
 }
 
