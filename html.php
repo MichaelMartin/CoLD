@@ -89,7 +89,6 @@ function getSnippetsContent() {
 
         <h3>Java Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
-
         public static String md5Hash(byte[] bytes) {
             MessageDigest md5 = null;
             try {
@@ -123,7 +122,6 @@ function getSnippetsContent() {
             String color = "#" + hash.substring(hash.length() - 6);
             return color;
         }
-
         </pre>
 
         <h3>Maven + Java Snippet</h3>

@@ -12,6 +12,10 @@ a {
     color: #666;
 }
 
+a img {
+    border: none; 
+}
+
 #wrapper {
     margin-left: auto;
     margin-right: auto;
