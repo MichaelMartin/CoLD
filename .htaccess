@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^rdf/(.*)$ rdf.php?color=$1
+
+    #RewriteBase /CoLD
+</IfModule>
+
