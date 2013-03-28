@@ -76,7 +76,8 @@ function getSnippetsContent() {
 
         <h3>JavaScript Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
-        &lt;script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"&gt;&lt;/script&gt;
+        &lt;script src="http://crypto-js.googlecode.com/svn/
+                        tags/3.1.2/build/rollups/md5.js"&gt;&lt;/script&gt;
         &lt;script&gt;
             var hash = CryptoJS.MD5("Message");
         &lt;/script&gt;
@@ -134,6 +135,7 @@ function getSnippetsContent() {
                 &lt;name&gt;University Leipzig, AKSW Maven2 Internal Repository&lt;/name&gt;
                 &lt;url&gt;http://maven.aksw.org/repository/internal/&lt;/url&gt;
             &lt;/repository&gt;
+            ...
         &lt;dependencies&gt;
             &lt;dependency&gt;
                 &lt;groupId&gt;org.aksw.commons&lt;/groupId&gt;
@@ -141,7 +143,8 @@ function getSnippetsContent() {
                 &lt;version&gt;0.1&lt;/version&gt;
                 &lt;scope&gt;compile&lt;/scope&gt;
             &lt;dependency&gt;
-
+            ...
+            
         #Java Snippet
         import org.aksw.commons.util.strings.StringUtils;
         String hash = StringUtils.md5Hash("01");
