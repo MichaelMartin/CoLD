@@ -160,8 +160,8 @@ function getSnippetsContent() {
 
         <h3>Shell Snippet</h3>
         <pre style="border:1px dashed #afafaf; background-color:eaeaea;padding-top:1em">
-        $iri "http://iri/to-be/color.ed/"
-        echo -n $iri | md5 | cut -c 27-
+        IRI="http://iri/to-be/color.ed/"
+        echo -n $IRI | md5 | cut -c 27-
         </pre>
     ';
     return $content; 
