@@ -16,7 +16,10 @@ if (!empty($iri)) {
 #    dbpedia:rgbCoordinateBlue  "'.$rgb['blue'].'"^^xsd:nonNegativeInteger .
 #    ' ;
 #}
-    
+
+# set proper turtle header (see http://www.w3.org/TR/turtle/#sec-mime for spec)
+header("Content-Type: text/turtle");
+
 #'.$colorPart.'
 echo '@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -33,5 +36,3 @@ cold:color a owl:AnnotationProperty ;
     rdfs:domain rdf:Resource ;
     rdfs:range dbpo:Colour .
 ';
-
-?>
